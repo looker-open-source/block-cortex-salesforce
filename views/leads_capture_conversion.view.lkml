@@ -308,28 +308,7 @@ view: leads_capture_conversion {
     }
   }
 
-  # measure: Sum_of_Total_sale_amount_conv {
-  #   type: sum_distinct
-  #   filters: [is_converted: "Yes"]
-  #   sql_distinct_key: ${opportunity_id} ;;
-  #   #Added 25 Nov
-  #   #sql_distinct_key: CONCAT(${opportunity_id},${sf_currency_conversion.primary_key_date});;
-  #   #End 25 Nov
-  #   sql: ${total_sale_amount_conv} ;;
-  #   precision: 2
-  #   #sql: ${total_sale_amount}*${sf_currency_conversion.conversion_rate} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Leads Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/459?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
-
-
-  # dimension: user_id {
-  #   type: string
-  #   sql: ${TABLE}.UserID ;;
-  # }
+ 
 
 
   dimension: lead_owner_name {

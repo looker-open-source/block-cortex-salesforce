@@ -346,44 +346,6 @@ view: opportunity_pipeline {
 
 
 
-  # measure: sum_of_total_sale_amount_conv {
-  #   type: sum
-  #   #type: sum_distinct
-  #   #sql_distinct_key: ${opportunity_pipeline.opportunity_id} ;;
-  #   sql: ${total_sale_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
-
-  #Added 13 Nov
-
-  # measure: sum_of_total_sale_amount_new_conv {
-  #   type: sum
-  #   #sql_distinct_key: ${opportunity_id} ;;
-  #   sql: ${total_sale_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
-
-  # measure: sum_of_total_sale_amount_new {
-  #   type: sum
-  #   #sql_distinct_key: ${opportunity_id} ;;
-  #   sql: ${total_sale_amount} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
-
-
-#End 13 Nov
 
 
   measure: sum_of_total_sale_amount {
@@ -398,18 +360,6 @@ view: opportunity_pipeline {
     }
   }
 
-  # measure: sum_of_total_sale_amount_conv_open {
-  #   type: sum
-  #   #type: sum_distinct
-  #   filters: [opportunity_is_closed: "No"]
-  #   #sql_distinct_key: ${opportunity_id} ;;
-  #   sql: ${total_sale_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
 
   measure: sum_of_total_sale_amount_open {
     type: sum
@@ -424,18 +374,7 @@ view: opportunity_pipeline {
     }
   }
 
-  # measure: sum_of_total_sale_amount_conv_closed_won {
-  #   type: sum
-  #   #type: sum_distinct
-  #   filters: [opportunity_is_closed: "Yes",opportunity_is_won: "Yes"]
-  #   #sql_distinct_key: ${opportunity_id} ;;
-  #   sql: ${total_sale_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
+
 
   measure: sum_of_total_sale_amount_closed_won {
     type: sum
@@ -450,18 +389,7 @@ view: opportunity_pipeline {
     }
   }
 
-  # measure: sum_of_total_sale_amount_conv_closed_lost {
-  #   type: sum
-  #   #type: sum_distinct
-  #   filters: [opportunity_is_closed: "Yes",opportunity_is_won: "No"]
-  #   #sql_distinct_key: ${opportunity_id} ;;
-  #   sql: ${total_sale_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
+ 
 
   measure: sum_of_total_sale_amount_closed_lost {
     type: sum
@@ -535,14 +463,6 @@ view: opportunity_pipeline {
     sql: ${TABLE}.UserFirstName ;;
   }
 
-  # dimension: user_full_name {
-  #   type: string
-  #   sql: ${TABLE}.OpportunityOwnerName ;;
-  #   link: {
-  #     label: "Opportunity Trends And Pipeline Detailed Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/502?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Currency={{_filters['sf_currency_conversion.target_currency']}}"
-  #   }
-  # }
 
   dimension: user_id {
     type: string

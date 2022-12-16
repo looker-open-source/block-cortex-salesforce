@@ -65,7 +65,6 @@ explore: leads_capture_conversion {
   # }
 }
 
-explore: sf_currency_conversion {}
 
 
 explore:sales_activities_engagement  {

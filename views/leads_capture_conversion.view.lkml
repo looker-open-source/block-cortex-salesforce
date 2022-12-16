@@ -46,7 +46,7 @@ view: leads_capture_conversion {
 
   dimension: is_converted {
     type: yesno
-    sql: ${TABLE}.LeadIsConverted ;;
+    sql: ${TABLE}.IsLeadConverted ;;
   }
 
   dimension_group: lead_converted {
@@ -95,7 +95,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -106,7 +106,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -117,7 +117,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -128,7 +128,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -139,7 +139,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -150,7 +150,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -161,7 +161,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -172,7 +172,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadIndustry ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -196,7 +196,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadSource ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -205,7 +205,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadStatus ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -252,7 +252,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -304,7 +304,7 @@ view: leads_capture_conversion {
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -337,7 +337,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadOwnerName ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_infosys::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
     }
   }
 
@@ -355,9 +355,9 @@ view: leads_capture_conversion {
     <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
         </nav>
         </nav>
       </div>

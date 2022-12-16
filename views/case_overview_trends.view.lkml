@@ -158,7 +158,7 @@ measure: avg_resolution_time {
 
   dimension: case_is_closed {
     type: yesno
-    sql: ${TABLE}.CaseIsClosed ;;
+    sql: ${TABLE}.IsCaseClosed ;;
   }
 
 dimension: agent_is_assigned {
@@ -373,9 +373,9 @@ dimension: agent_is_assigned {
     <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::case_overview__trends" target=”_blank”>Case Overview And Trends</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::case_management__resolution" target=”_blank”>Case Management And Resolution</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::accounts_with_cases" target=”_blank”>Accounts With Cases</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::case_overview__trends" target=”_blank”>Case Overview And Trends</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::case_management__resolution" target=”_blank”>Case Management And Resolution</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::accounts_with_cases" target=”_blank”>Accounts With Cases</a>
         </nav>
         </nav>
       </div>

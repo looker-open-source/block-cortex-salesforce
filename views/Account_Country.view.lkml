@@ -19,9 +19,7 @@ view: account_country {
         UNION ALL
 
        Select distinct LeadCountry as AccountCountry, '' as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
-       -- UNION ALL
-
-      --  Select distinct LeadCountry as Lead/AccountCountry, LeadId as Lead/AccountId from kittykorn-dev-infy.SALESFORCE_DEV_SL.SalesActivities as c
+       
         );;
 
     }

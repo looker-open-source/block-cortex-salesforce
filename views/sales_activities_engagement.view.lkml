@@ -96,7 +96,7 @@ view: sales_activities_engagement {
 
   dimension: is_closed {
    type: yesno
-   sql: ${TABLE}.OpportunityIsClosed ;;
+   sql: ${TABLE}.IsOpportunityClosed ;;
   }
 
 
@@ -105,8 +105,8 @@ view: sales_activities_engagement {
 dimension: is_closed_flag {
   type: string
   sql: CASE
-         WHEN ${TABLE}.OpportunityIsClosed THEN 'Yes'
-         WHEN NOT(${TABLE}.OpportunityIsClosed) THEN 'No'
+         WHEN ${TABLE}.IsOpportunityClosed THEN 'Yes'
+         WHEN NOT(${TABLE}.IsOpportunityClosed) THEN 'No'
          ELSE 'Null'
        END;;
 }
@@ -124,7 +124,7 @@ dimension: is_closed_flag {
 
   dimension: is_won {
     type: yesno
-    sql: ${TABLE}.OpportunityIsWon ;;
+    sql: ${TABLE}.IsOpportunityWon ;;
   }
 
 
@@ -133,15 +133,15 @@ dimension: is_closed_flag {
   dimension: is_won_flag {
     type: string
     sql:  CASE
-         WHEN ${TABLE}.OpportunityIsWon THEN 'Yes'
-         WHEN NOT(${TABLE}.OpportunityIsWon) THEN 'No'
+         WHEN ${TABLE}.IsOpportunityWon THEN 'Yes'
+         WHEN NOT(${TABLE}.IsOpportunityWon) THEN 'No'
          ELSE 'Null'
        END;;
   }
 
   dimension: is_converted {
     type: yesno
-    sql: ${TABLE}.LeadIsConverted ;;
+    sql: ${TABLE}.IsLeadConverted ;;
   }
 
   #Using a separate flag for boolean values as Looker considers NULL values in "Boolean" coloumns
@@ -149,8 +149,8 @@ dimension: is_closed_flag {
   dimension: is_converted_flag {
     type: string
     sql:  CASE
-         WHEN ${TABLE}.LeadIsConverted THEN 'Yes'
-         WHEN NOT(${TABLE}.LeadIsConverted) THEN 'No'
+         WHEN ${TABLE}.IsLeadConverted THEN 'Yes'
+         WHEN NOT(${TABLE}.IsLeadConverted) THEN 'No'
          ELSE 'Null'
        END;;
   }
@@ -233,7 +233,7 @@ dimension: is_closed_flag {
       year
     ]
     datatype: date
-    sql: ${TABLE}.OpportunityClosedDate ;;
+    sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
   # dimension: opportunity_completed_activity_analysis {
@@ -295,10 +295,7 @@ dimension: is_closed_flag {
     type: count_distinct
     sql: ${TABLE}.ActivityId ;;
     value_format: "#,##0"
-    #link: {
-     # label: "Opportunity Activities Detail Report"
-    #  url: "https://cortex.cloud.looker.com/dashboards/666?Created+Date={{_filters['sales_activities_engagement.opportunity_created_date']}}&Country={{_filters['sales_activities_engagement.billing_country']}}&Stage={{_filters['sales_activities_engagement.opportunity_stage']}}&Owner={{_filters['sales_activities_engagement.user_full_name']}}"
-    #}
+   
   }
 
 
@@ -419,7 +416,7 @@ dimension: lead_industry {
     value_format: "0.00"
      link: {
        label: "Lead Follow-Ups Detail Report"
-       url: "/dashboards/cortex_infosys::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
+       url: "/dashboards/cortex_salesforce::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
 "
      }
   }
@@ -430,7 +427,7 @@ dimension: lead_industry {
     value_format: "#,##0"
     link: {
       label: "Lead Follow-Ups Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
 "
     }
   }
@@ -458,7 +455,7 @@ dimension: lead_industry {
     value_format:"0.00"
     link: {
       label: "Lead Follow-Ups Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
       "
     }
   }
@@ -485,7 +482,7 @@ dimension: lead_industry {
     value_format:"0.00"
     link: {
       label: "Lead Follow-Ups Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_lead_followups_details?Lead+Created+Date={{_filters['sales_activities_engagement.lead_created_date_date'] | url_encode}}&Lead+Country={{_filters['sales_activities_engagement.lead_country']}}&Lead+Industry={{_filters['sales_activities_engagement.lead_industry']}}&Lead+Status={{_filters['sales_activities_engagement.lead_status']}}&Lead+Owner={{_filters['sales_activities_engagement.lead_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Lead+Is+Converted+(Yes+/+No)={{_filters['sales_activities_engagement.is_converted'] | url_encode}}
 "
     }
   }
@@ -524,7 +521,7 @@ dimension: lead_industry {
     value_format: "#,##0"
     link: {
       label: "Opportunity Activities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
     }
   }
 
@@ -550,7 +547,7 @@ dimension: lead_industry {
     value_format: "0"
     link: {
       label: "Opportunity Activities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
     }
   }
 
@@ -575,7 +572,7 @@ dimension: lead_industry {
     value_format: "0"
     link: {
       label: "Opportunity Activities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
     }
   }
 
@@ -601,7 +598,7 @@ dimension: lead_industry {
     value_format: "0"
     link: {
       label: "Opportunity Activities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
     }
   }
 
@@ -627,7 +624,7 @@ dimension: lead_industry {
     value_format: "0"
     link: {
       label: "Opportunity Activities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_opportunity_activities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement.opportunity_created_date'] | url_encode}}&Country={{_filters['sales_activities_engagement.account_country']}}&Industry={{_filters['sales_activities_engagement.account_industry']}}&Stage={{_filters['sales_activities_engagement.stage_name']}}&Opportunity+Owner={{_filters['sales_activities_engagement.opportunity_owner']}}&Activity+Status={{_filters['sales_activities_engagement.status']}}&Opportunity+Is+Closed+(Yes+/+No)={{_filters['sales_activities_engagement.is_closed'] | url_encode}}&Opportunity+Is+Won+(Yes+/+No)={{_filters['sales_activities_engagement.is_won'] | url_encode}}"
     }
   }
 
@@ -701,9 +698,9 @@ dimension: what_id {
     <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
         </nav>
         </nav>
       </div>

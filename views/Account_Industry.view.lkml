@@ -20,9 +20,7 @@ view: account_industry {
         UNION ALL
 
         Select distinct LeadIndustry as AccountIndustry, '' as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
-        -- UNION ALL
-
-        --  Select distinct LeadCountry as Lead/AccountCountry, LeadId as Lead/AccountId from kittykorn-dev-infy.SALESFORCE_DEV_SL.SalesActivities as c
+        
         );;
 
     }

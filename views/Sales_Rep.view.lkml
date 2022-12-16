@@ -21,25 +21,7 @@ Select distinct LeadOwnerName as Name,LeadOwnerId as Owner from @{GCP_PROJECT}.@
 
 }
 
-#  sql:
 
-#  Select distinct Owner,Name from
-
-#(Select distinct a.OwnerId as Owner,b.Name from kittycorn-dev-infy.SALESFORCE_DEV_SL.SalesActivities as a
-#left outer join
-#kittycorn-dev-infy.SALESFORCE_DEV_SL.User as b
-#on
-#a.OwnerId=b.UserId
-
-#UNION ALL
-
-#Select distinct a.OpportunityOwnerId as Owner,b.Name from kittycorn-dev-infy.SALESFORCE_DEV_SL.OpportunityPipeline as a
-#left outer join
-#kittycorn-dev-infy.SALESFORCE_DEV_SL.User as b
-#on
-#a.OpportunityOwnerId=b.UserId
-
-#);;
 
   dimension: sales_rep_id {
     type: string

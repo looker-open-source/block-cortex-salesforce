@@ -144,7 +144,7 @@ view: sales_activities_engagement_opportunity_pipeline {
       year
     ]
     datatype: date
-    sql: ${TABLE}.OpportunityClosedDate ;;
+    sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
   dimension_group: opportunity_created {
@@ -179,7 +179,7 @@ view: sales_activities_engagement_opportunity_pipeline {
 
   dimension: opportunity_is_closed {
     type: yesno
-    sql: ${TABLE}.OpportunityIsClosed ;;
+    sql: ${TABLE}.IsOpportunityClosed ;;
   }
 
   # dimension: opportunity_is_deleted {
@@ -189,7 +189,7 @@ view: sales_activities_engagement_opportunity_pipeline {
 
   dimension: opportunity_is_won {
     type: yesno
-    sql: ${TABLE}.OpportunityIsWon ;;
+    sql: ${TABLE}.IsOpportunityWon ;;
   }
 
   dimension: opportunity_name {
@@ -434,42 +434,17 @@ view: sales_activities_engagement_opportunity_pipeline {
     tiers: [1,25,50,100,200,500,1000]
     style: integer
     #sql: DATETIME_DIFF(DATETIME(CURRENT_TIMESTAMP(), 'UTC'), DATETIME((TIMESTAMP_TRUNC(${TABLE}.OpportunityClosedDate , DAY)), 'UTC'), DAY) ;;
-    sql: DATE_DIFF(DATE(CURRENT_TIMESTAMP()), DATE(${TABLE}.OpportunityClosedDate), DAY) ;;
+    sql: DATE_DIFF(DATE(CURRENT_TIMESTAMP()), DATE(${TABLE}.OpportunityCloseDate), DAY) ;;
     link: {
       label: "Overdue Opportunities Detail Report"
-      url: "/dashboards/cortex_infosys::sales_activities__engagement_overdue_opportunities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['sales_activities_engagement_opportunity_pipeline.billing_country']}}&Industry={{_filters['sales_activities_engagement_opportunity_pipeline.industry']}}&Stage={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_stage']}}&Owner={{_filters['sales_activities_engagement_opportunity_pipeline.user_full_name']}}&Overdue+Days+Range={{sales_activities_engagement_opportunity_pipeline.overdue_days_range._value}}"
+      url: "/dashboards/cortex_salesforce::sales_activities__engagement_overdue_opportunities_details?Opportunity+Created+Date={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['sales_activities_engagement_opportunity_pipeline.billing_country']}}&Industry={{_filters['sales_activities_engagement_opportunity_pipeline.industry']}}&Stage={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_stage']}}&Owner={{_filters['sales_activities_engagement_opportunity_pipeline.user_full_name']}}&Overdue+Days+Range={{sales_activities_engagement_opportunity_pipeline.overdue_days_range._value}}"
     }
   }
 
 
-  # dimension: overdue_days_tier {
-  #   type: tier
-  #   tiers: [0,25,50,100,500,1000]
-  #   style: integer
-  #   sql: DATETIME_DIFF(DATETIME(CURRENT_TIMESTAMP(), 'UTC'), DATETIME((TIMESTAMP_TRUNC(${TABLE}.OpportunityClosedDate , DAY)), 'UTC'), DAY) ;;
-  #   link: {
-  #     label: "Overdue Opportunities Detail Report"
-  #     url: "https://cortex.cloud.looker.com/dashboards/661?Created+Date={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['sales_activities_engagement_opportunity_pipeline.billing_country']}}&Stage={{_filters['sales_activities_engagement_opportunity_pipeline.opportunity_stage']}}&Owner={{_filters['sales_activities_engagement_opportunity_pipeline.user_full_name']}}"
-  #   }
-  # }
+  
 
-  # measure: dash_nav {
-  #   hidden: no
-  #   label: "Navigation Bar"
-  #   type: string
-  #   sql: "";;
-  #   html:
-  #   <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
-  #     <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
-  #       <nav style="font-size: 18px; color: #4285F4">
-  #         <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="" target=”_blank”>Leads Capture And Conversion</a>
-  #         <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="https://cortex.cloud.looker.com/dashboards/485" target=”_blank”>Opportunity Trends And Pipeline</a>
-  #         <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="" target=”_blank”>Sales Activities And Engagement</a>
-  #       </nav>
-  #       </nav>
-  #     </div>
-  #   <div style="background-color: #FFFFFF; height:500px;width:100%"></div>;;
-  # }
+  
 
   # ----- Sets of fields for drilling ------
   set: detail {

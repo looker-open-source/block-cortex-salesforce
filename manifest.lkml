@@ -1,12 +1,22 @@
 
-#Salesforce Release 1.1 
+constant: CONNECTION_NAME {
+  value: "cortex"
+  export: override_required
+}
+
 
 constant: GCP_PROJECT {
-  value: "kittycorn-dev-infy"
+  value: "GCP Project Name"
   export: override_required
 }
 
+
 constant: SFDC_DATASET {
-  value: "SFDC_REPORTING"
+  value: "Reporting Dataset Name"
   export: override_required
 }
+
+
+
+
+

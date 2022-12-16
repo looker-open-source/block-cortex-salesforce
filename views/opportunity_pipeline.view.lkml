@@ -43,7 +43,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.AccountName ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -127,7 +127,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.AccountIndustry ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -167,7 +167,7 @@ view: opportunity_pipeline {
       quarter,
       year
     ]
-    sql: ${TABLE}.OpportunityClosedDate ;;
+    sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
   dimension: opportunity_closed_date_date {
@@ -202,7 +202,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.OpportunityId ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -212,7 +212,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -223,7 +223,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -234,7 +234,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -245,14 +245,14 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
 
   dimension: opportunity_is_closed {
     type: yesno
-    sql: ${TABLE}.OpportunityIsClosed ;;
+    sql: ${TABLE}.IsOpportunityClosed ;;
   }
 
   # dimension: opportunity_is_deleted {
@@ -262,7 +262,7 @@ view: opportunity_pipeline {
 
   dimension: opportunity_is_won {
     type: yesno
-    sql: ${TABLE}.OpportunityIsWon ;;
+    sql: ${TABLE}.IsOpportunityWon ;;
   }
 
   dimension: opportunity_name {
@@ -394,7 +394,7 @@ view: opportunity_pipeline {
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -420,7 +420,7 @@ view: opportunity_pipeline {
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -446,7 +446,7 @@ view: opportunity_pipeline {
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -472,7 +472,7 @@ view: opportunity_pipeline {
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -564,7 +564,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.OpportunityOwnerName ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_infosys::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
     }
   }
 
@@ -587,9 +587,9 @@ view: opportunity_pipeline {
     <div style="background-color: #FFFFFF; height:525px;width:100%"></div>
       <div style="background-color: #FFFFFF; border: solid 1px #4285F4; border-radius: 5px; padding: 5px 10px; height: 60px; width:100%">
         <nav style="font-size: 18px; color: #4285F4">
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
-          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_infosys::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::leads_capture__conversion" target=”_blank”>Leads Capture And Conversion</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::opportunity_trends__pipeline" target=”_blank”>Opportunity Trends And Pipeline</a>
+          <a style="padding: 5px; float: center; line-height: 40px; margin-left: 8px; color: #4285F4" href="/dashboards/cortex_salesforce::sales_activities__engagement" target=”_blank”>Sales Activities And Engagement</a>
         </nav>
         </nav>
       </div>

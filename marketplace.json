@@ -1,0 +1,28 @@
+{
+  "label": "Cortex Data Foundation for Salesforce",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/cortex_icon.png",
+    "tagline": "Common analytics dashboarding templates for data replicated from Salesforce into BigQuery leveraging Cortex Data Foundation content."
+  },
+
+  "constants": {
+    "CONNECTION_NAME": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "GCP_PROJECT": {
+      "label": "GCP Project Name"
+    },
+    "SFDC_DATASET": {
+      "label": "Reporting Dataset Name"
+    },
+  },
+      "models": [
+        {
+            "name": "cortex_salesforce",
+            "connection_constant": "CONNECTION_NAME"
+        }
+    ]
+  
+}

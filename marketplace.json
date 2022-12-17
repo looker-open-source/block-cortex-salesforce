@@ -16,7 +16,7 @@
     },
     "SFDC_DATASET": {
       "label": "Reporting Dataset Name"
-    },
+    }
   },
       "models": [
         {

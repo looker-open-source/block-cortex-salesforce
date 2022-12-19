@@ -7,7 +7,7 @@ What does this Looker Block do for me?
 There are several high-level dashboards included:
 - **1. Leads Capture & Conversion** - Monitor Leads Captured by Source and Industry, status of the Leads and Lead Conversion Trends.
 - **2. Opportunity Trends & Pipeline** - Insights on Opportunities in the Pipeline, Opportunity Trends and their value.
-- **3. Sales Activities & Engagement** - Monitor Follow-Ups happening for Leads and Opportunities, whether sufficient follow-ups are happening and which Opportunities need immediate follow-up.
+- **3. Sales Activities & Engagement** - Monitor Follow-Ups happening for Leads and Opportunities and which Opportunities need immediate follow-up.
 - **4. Case Overview & Trends** - Monitor overall status of Cases and their trends by priority and source.
 - **5. Case Management & Resolution** - Insights on how Cases are being managed, how fast they are being resolved and how the Agents are performing.
 - **6. Accounts with Cases** - Monitor which Accounts have Cases and which should be focused on.

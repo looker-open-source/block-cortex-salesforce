@@ -1,47 +1,29 @@
-<h1><span style="color:#2d7eea">README - Your LookML Project</span></h1>
+<h1><span style="color:#2d7eea">Google Cloud Cortex Framework for SALESFORCE</span></h1>
 
-<h2><span style="color:#2d7eea">LookML Overview</span></h2>
+<h2><span style="color:#2d7eea">Data Foundation Salesforce</span></h2>
 
-LookML is a data modeling language for describing dimensions, fields, aggregates and relationships based on SQL.
+What does this Looker Block do for me?
 
-LookML is powerful because it:
+There are several high-level dashboards included:
+- **1. Leads Capture & Conversion** - Monitor Leads Captured by Source and Industry, status of the Leads and Lead Conversion Trends.
+- **2. Opportunity Trends & Pipeline** - Insights on Opportunities in the Pipeline, Opportunity Trends and their value.
+- **3. Sales Activities & Engagement** - Monitor Follow-Ups happening for Leads and Opportunities, whether sufficient follow-ups are happening and which Opportunities need immediate follow-up.
+- **4. Case Overview & Trends** - Monitor overall status of Cases and their trends by priority and source.
+- **5. Case Management & Resolution** - Insights on how Cases are being managed, how fast they are being resolved and how the Agents are performing.
+- **6. Accounts with Cases** - Monitor which Accounts have Cases and which should be focused on.
 
-- **Is all about reusability**: Most data analysis requires the same work to be done over and over again. You extract
-raw data, prepare it, deliver an analysis... and then are never able touse any of that work again. This is hugely
-inefficient, since the next analysis often involves many of the same steps. With LookML, once you define a
-dimension or a measure, you continue to build on it, rather than having to rewrite it again and again.
-- **Empowers end users**:  The data model that data analysts and developers create in LookML condenses and
-encapsulates the complexity of SQL, it and lets analysts get the knowledge about what their data means out of
-their heads so others can use it. This enables non-technical users to do their jobs &mdash; building dashboards,
-drilling to row-level detail, and accessing complex metrics &mdash; without having to worry about what’s behind the curtain.
-- **Allows for data governance**: By defining business metrics in LookML, you can ensure that Looker is always a
-credible single source of truth.
+These 6 dashboards are accompanied by 5 supplemental dashboards with pertinent drill information. The dashboards have been organized by relationship to one of the 6 primary dashboards.
+(For example, dashboards related to "1. Leads Capture & Conversion" will have titles following this pattern "1_a" "1_b").
 
-The Looker application uses a model written in LookML to construct SQL queries against a particular database that
-business analysts can [Explore](https://docs.looker.com/r/exploring-data) on. For an overview on the basics of LookML, see [What is LookML?](https://docs.looker.com/r/what-is-lookml)
+<h2><span style="color:#2d7eea">Required Customizations</span></h2>
 
-<h2><span style="color:#2d7eea">Learn to Speak Looker</span></h2>
-R
-A LookML project is a collection of LookML files that describes a set of related [views](https://docs.looker.com/r/terms/view-file), [models](https://docs.looker.com/r/terms/model-file), and [Explores](https://docs.looker.com/r/terms/explore).
-- A [view](https://docs.looker.com/r/terms/view-file) (.view files) contains information about how to access or calculate information from each table (or
-across multiple joined tables). Here you’ll typically define the view, its dimensions and measures, and its field sets.
-- A [model](https://docs.looker.com/r/terms/model-file) (.model file) contains information about which tables to use and how they should be joined together.
-Here you’ll typically define the model, its Explores, and its joins.
-- An [Explore](https://docs.looker.com/r/terms/explore) is the starting point for business users to query data, and it is the end result of the LookML you are
-writing. To see the Explores in this project, select an Explore from the Explore menu.
+>   ❕ Required Constant Values are configured during the Installation process
 
-<h2><span style="color:#2d7eea">Exploring Data</span></h2>
+- **Connection**: In the manifest.lkml file, update the value of the CONNECTION_NAME constant.
 
-Ad-hoc data discovery is one of Looker’s most powerful and unique features. As you evaluate use cases for your
-trial, consider what business areas you would like to explore. Open the Explore menu in the main navigation to see
-the Explores you are building.
+- **GCP Project**: The GCP project name where the SALESFORCE reporting dataset resides in BigQuery (not project id).
 
-<h2><span style="color:#2d7eea">The Development Workflow</span></h2>
-
-To support a multi-developer environment, Looker is integrated with Git for version control. Follow [these directions](https://docs.looker.com/r/develop/git-setup)
-to set up Git for your project. To edit LookML, expand the Develop drop-down and toggle on [Development Mode](https://docs.looker.com/r/terms/dev-mode). In
-Development Mode, changes you make to the LookML model exist only in your account until you commit the
-changes and push them to your production model.
+- **SFDC Dataset**: The deployed Cortex Data Foundation _REPORTING dataset where the SALESFORCE views reside within the GCP BigQuery project.
 
 <h2><span style="color:#2d7eea">Additional Resources</span></h2>
 

@@ -167,15 +167,16 @@ view: opportunity_pipeline {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
-  dimension: opportunity_closed_date_date {
-    type: date
-    datatype: date
-    primary_key: yes
-    sql: ${opportunity_closed_date} ;;
-  }
+#   dimension: opportunity_closed_date_date {
+#     type: date
+#     datatype: date
+#     primary_key: yes
+#     sql: ${opportunity_closed_date} ;;
+#   }
 
   dimension_group: opportunity_created {
     type: time

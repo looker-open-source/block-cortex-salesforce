@@ -429,6 +429,15 @@ view: sales_activities_engagement_opportunity_pipeline {
   # # value_format: "[>=1000000000]$0.00,,,\"B\";[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
   # }
 
+  dimension: overdue_days_tier {
+    type: tier
+    tiers: [1,25,50,100,200,500,1000]
+    style: integer
+    #sql: DATETIME_DIFF(DATETIME(CURRENT_TIMESTAMP(), 'UTC'), DATETIME((TIMESTAMP_TRUNC(${TABLE}.OpportunityClosedDate , DAY)), 'UTC'), DAY) ;;
+    sql: DATE_DIFF(DATE(CURRENT_TIMESTAMP()), DATE(${TABLE}.OpportunityCloseDate), DAY) ;;
+
+  }
+
   dimension: overdue_days_range {
     type: tier
     tiers: [1,25,50,100,200,500,1000]
@@ -442,9 +451,6 @@ view: sales_activities_engagement_opportunity_pipeline {
   }
 
 
-  
-
-  
 
   # ----- Sets of fields for drilling ------
   set: detail {

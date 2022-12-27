@@ -16,12 +16,13 @@
       sales_activities_engagement_opportunity_pipeline.user_full_name, sales_activities_engagement_opportunity_pipeline.count_of_opportunity_id]
     filters:
       sales_activities_engagement_opportunity_pipeline.opportunity_is_closed: 'No'
+      sales_activities_engagement_opportunity_pipeline.overdue_days_tier: "-Below\
+        \ 1,-Undefined"
     sorts: [overdue_days desc, sales_activities_engagement_opportunity_pipeline.probability
         desc, sales_activities_engagement_opportunity_pipeline.count_of_opportunity_id
         desc, sales_activities_engagement_opportunity_pipeline.opportunity_name desc,
       sales_activities_engagement_opportunity_pipeline.opportunity_stage desc]
     limit: 500
-    total: true
     dynamic_fields: [{category: dimension, expression: 'diff_days(${sales_activities_engagement_opportunity_pipeline.opportunity_closed_date},now())',
         label: Overdue (days), value_format: !!null '', value_format_name: !!null '',
         dimension: overdue_days, _kind_hint: dimension, _type_hint: number}]

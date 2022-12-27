@@ -222,7 +222,7 @@ view: leads_capture_conversion {
       year
     ]
     datatype: date
-    sql: ${TABLE}.OpportunityClosedDate ;;
+    sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
   dimension_group: opportunity_created {

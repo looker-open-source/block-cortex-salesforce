@@ -60,6 +60,7 @@ view: leads_capture_conversion {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.LeadConvertedDate ;;
   }
 
@@ -220,6 +221,7 @@ view: leads_capture_conversion {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.OpportunityClosedDate ;;
   }
 

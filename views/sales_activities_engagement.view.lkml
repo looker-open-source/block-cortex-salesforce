@@ -28,8 +28,14 @@ view: sales_activities_engagement {
 
   dimension: activity_id {
     type: string
-    primary_key: yes
+    #primary_key: yes
     sql: ${TABLE}.ActivityId ;;
+  }
+
+  dimension: activity_id_target_currency {
+    type: string
+    primary_key: yes
+    sql: CONCAT(${activity_id},${target_currency}) ;;
   }
 
   dimension: opportunity_owner {
@@ -48,20 +54,6 @@ view: sales_activities_engagement {
     sql: ${TABLE}.ActivityType ;;
   }
 
-  # dimension: avg_follow_up_contact_rate {
-  #   type: number
-  #   sql: ${TABLE}.Avg_Follow_Up_Contact_Rate ;;
-  # }
-
-  # dimension: count_active_engagements_least10 {
-  #   type: number
-  #   sql: ${TABLE}.Count_Active_Engagements_Least10 ;;
-  # }
-
-  # dimension: count_active_engagements_top10 {
-  #   type: number
-  #   sql: ${TABLE}.Count_Active_Engagements_Top10 ;;
-  # }
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
@@ -91,6 +83,7 @@ view: sales_activities_engagement {
       quarter,
       year
     ]
+    datatype: date
     sql: ${TABLE}.ActivityEndDate ;;
   }
 
@@ -111,16 +104,6 @@ dimension: is_closed_flag {
        END;;
 }
 
-
-   # dimension: is_closed {
-    #  type: yesno
-    #  sql:
-  #  'Yes': ${TABLE}.IsClosed = 'true'
-
-  #  'No': ${TABLE}.IsClosed = 'false'
-
-  #  'Null': ${TABLE}.IsClosed = NULL ;;
-  #  }
 
   dimension: is_won {
     type: yesno
@@ -156,8 +139,6 @@ dimension: is_closed_flag {
   }
 
 
-
-
   dimension_group: last_activity {
     type: time
     timeframes: [
@@ -188,39 +169,16 @@ dimension: is_closed_flag {
     sql: ${TABLE}.LeadName ;;
   }
 
-  # dimension: neglected_opportunities {
-  #   type: number
-  #   sql: ${TABLE}.Neglected_Opportunities ;;
-  # }
-
-  # dimension: opportunities_with_passed_closed_date {
-  #   type: number
-  #   sql: ${TABLE}.Opportunities_With_Passed_Closed_Date ;;
-  # }
 
   dimension: opportunity_account_id {
     type: string
     sql: ${TABLE}.OpportunityAccountId ;;
   }
 
-  # dimension: opportunity_amount {
-  #   type: number
-  #   sql: ${TABLE}.OpportunityAmount ;;
-  # }
-
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
-  # measure: total_opportunity_amount {
-  #   type: sum
-  #   sql: ${opportunity_amount} ;;
-  # }
-
-  # measure: average_opportunity_amount {
-  #   type: average
-  #   sql: ${opportunity_amount} ;;
-  # }
 
   dimension_group: opportunity_closed {
     type: time
@@ -235,11 +193,6 @@ dimension: is_closed_flag {
     datatype: date
     sql: ${TABLE}.OpportunityCloseDate ;;
   }
-
-  # dimension: opportunity_completed_activity_analysis {
-  #   type: number
-  #   sql: ${TABLE}.Opportunity_Completed_Activity_Analysis ;;
-  # }
 
   dimension_group: opportunity_created {
     type: time
@@ -270,10 +223,6 @@ dimension: is_closed_flag {
     sql: ${TABLE}.OpportunityName ;;
   }
 
-  # dimension: opportunity_open_activity_analysis {
-  #   type: number
-  #   sql: ${TABLE}.Opportunity_Open_Activity_Analysis ;;
-  # }
 
   dimension: opportunity_owner_id {
     type: string
@@ -295,11 +244,10 @@ dimension: is_closed_flag {
     type: count_distinct
     sql: ${TABLE}.ActivityId ;;
     value_format: "#,##0"
-   
   }
 
 
-  measure: Total_Opportunity_Value{
+  measure: Total_Opportunity_Expected_Value{
     type: sum_distinct
     sql_distinct_key: ${TABLE}.OpportunityId ;;
     sql: ${TABLE}.OpportunityExpectedValue ;;
@@ -322,12 +270,12 @@ dimension: is_closed_flag {
 
   dimension: subject {
     type: string
-    sql: ${TABLE}.Subject ;;
+    sql: ${TABLE}.ActivitySubject ;;
   }
 
-  dimension: task_priority {
+  dimension: activity_priority {
     type: string
-    sql: ${TABLE}.TaskPriority ;;
+    sql: ${TABLE}.ActivityPriority ;;
   }
 
   dimension: account_country {
@@ -380,11 +328,6 @@ dimension: lead_industry {
   sql: ${TABLE}.LeadIndustry ;;
 }
 
-
-#measure: count_lead_owner {
-#  type: count_distinct
-#  sql: ${TABLE}.LeadOwnerId ;;
-#}
 
 #Lead activity
 
@@ -688,6 +631,15 @@ dimension: what_id {
   sql: ${TABLE}.WhatId ;;
 }
 
+dimension: who_id {
+  type: string
+  sql: ${TABLE}.WhoId ;;
+}
+
+dimension: target_currency {
+  type: string
+  sql: ${TABLE}.TargetCurrency ;;
+}
 
   measure: dash_nav {
     hidden: no

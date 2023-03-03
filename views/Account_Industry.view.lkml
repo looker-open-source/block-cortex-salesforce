@@ -20,7 +20,7 @@ view: account_industry {
         UNION ALL
 
         Select distinct LeadIndustry as AccountIndustry, '' as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
-        
+
         );;
 
     }

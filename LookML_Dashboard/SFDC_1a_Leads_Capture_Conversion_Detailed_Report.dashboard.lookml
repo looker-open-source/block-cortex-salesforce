@@ -64,6 +64,7 @@
       Is Converted (Yes / No): leads_capture_conversion.is_converted
       Lead Created Date: leads_capture_conversion.lead_created_date
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 0
     col: 0
     width: 24
@@ -83,6 +84,19 @@
     explore: leads_capture_conversion
     listens_to_filters: []
     field: leads_capture_conversion.lead_created_date
+  - name: Target Currency
+    title: Target Currency
+    type: field_filter
+    default_value: USD
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: popover
+    model: cortex_salesforce
+    explore: leads_capture_conversion
+    listens_to_filters: []
+    field: leads_capture_conversion.target_currency
   - name: Country
     title: Country
     type: field_filter

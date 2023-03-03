@@ -59,6 +59,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 4
     col: 0
     width: 6
@@ -92,6 +93,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 4
     col: 6
     width: 6
@@ -219,6 +221,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 7
     col: 8
     width: 8
@@ -277,6 +280,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 7
     col: 0
     width: 8
@@ -352,6 +356,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 13
     col: 0
     width: 8
@@ -438,6 +443,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 13
     col: 16
     width: 8
@@ -552,6 +558,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 13
     col: 8
     width: 8
@@ -621,6 +628,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 4
     col: 12
     width: 6
@@ -631,6 +639,7 @@
     explore: leads_capture_conversion
     type: single_value
     fields: [leads_capture_conversion.Sum_of_Total_sale_amount]
+    filters: {}
     limit: 500
     column_limit: 50
     dynamic_fields: [{args: [leads_capture_conversion.Sum_of_Total_sale_amount], calculation_type: percent_of_previous,
@@ -666,6 +675,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 4
     col: 18
     width: 6
@@ -758,6 +768,7 @@
       Industry: leads_capture_conversion.lead_industry
       Lead Source: leads_capture_conversion.lead_source
       Lead Owner: leads_capture_conversion.lead_owner_name
+      Target Currency: leads_capture_conversion.target_currency
     row: 7
     col: 16
     width: 8
@@ -777,6 +788,19 @@
     explore: leads_capture_conversion
     listens_to_filters: []
     field: leads_capture_conversion.lead_created_date
+  - name: Target Currency
+    title: Target Currency
+    type: field_filter
+    default_value: USD
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: cortex_salesforce
+    explore: leads_capture_conversion
+    listens_to_filters: []
+    field: leads_capture_conversion.target_currency
   - name: Country
     title: Country
     type: field_filter

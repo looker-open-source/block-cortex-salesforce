@@ -78,7 +78,7 @@
   - name: Opportunity Created Date
     title: Opportunity Created Date
     type: field_filter
-    default_value: 7 day
+    default_value: this year to second
     allow_multiple_values: true
     required: false
     ui_config:

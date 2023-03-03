@@ -74,12 +74,12 @@
   - name: Lead Created Date
     title: Lead Created Date
     type: field_filter
-    default_value: 7 day
+    default_value: this year to second
     allow_multiple_values: true
     required: false
     ui_config:
       type: relative_timeframes
-      display: popover
+      display: inline
       options: []
     model: cortex_salesforce
     explore: sales_activities_engagement_opportunity_pipeline
@@ -153,7 +153,7 @@
   - name: Lead Is Converted (Yes / No)
     title: Lead Is Converted (Yes / No)
     type: field_filter
-    default_value: 'Yes'
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:

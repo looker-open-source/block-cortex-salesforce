@@ -99,13 +99,14 @@
     col: 6
     width: 6
     height: 2
-  - title: New Tile
-    name: New Tile
+  - title: Navigation Bar
+    name: Navigation Bar
     model: cortex_salesforce
     explore: sales_activities_engagement_opportunity_pipeline
     type: single_value
     fields: [sales_activities_engagement.dash_nav]
     limit: 500
+    column_limit: 50
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -222,6 +223,7 @@
       Country: sales_activities_engagement_opportunity_pipeline.billing_country
       Created Date: sales_activities_engagement_opportunity_pipeline.opportunity_created_date
       Industry: sales_activities_engagement_opportunity_pipeline.industry
+      Target Currency: sales_activities_engagement_opportunity_pipeline.target_currency
     row: 21
     col: 0
     width: 12
@@ -241,6 +243,7 @@
     sorts: [days_since_last_activity desc, sales_activities_engagement_opportunity_pipeline.sum_of_total_sale_amount
         desc]
     limit: 500
+    column_limit: 50
     dynamic_fields: [{category: dimension, expression: 'if(is_null(${sales_activities_engagement_opportunity_pipeline.last_activity_date_date}),diff_days(${sales_activities_engagement_opportunity_pipeline.opportunity_created_date},now()),diff_days(${sales_activities_engagement_opportunity_pipeline.last_activity_date_date},now()))',
         label: Days since Last Activity, value_format: !!null '', value_format_name: !!null '',
         dimension: days_since_last_activity, _kind_hint: dimension, _type_hint: number}]
@@ -307,10 +310,11 @@
       Country: sales_activities_engagement_opportunity_pipeline.billing_country
       Created Date: sales_activities_engagement_opportunity_pipeline.opportunity_created_date
       Industry: sales_activities_engagement_opportunity_pipeline.industry
+      Target Currency: sales_activities_engagement_opportunity_pipeline.target_currency
     row: 27
     col: 0
     width: 24
-    height: 10
+    height: 7
   - title: Sales Representatives by Activity Count
     name: Sales Representatives by Activity Count
     model: cortex_salesforce
@@ -820,6 +824,7 @@
       Country: sales_activities_engagement_opportunity_pipeline.billing_country
       Created Date: sales_activities_engagement_opportunity_pipeline.opportunity_created_date
       Industry: sales_activities_engagement_opportunity_pipeline.industry
+      Target Currency: sales_activities_engagement_opportunity_pipeline.target_currency
     row: 21
     col: 12
     width: 12
@@ -914,7 +919,7 @@
     totals_color: "#808080"
     defaults_version: 1
     note_state: collapsed
-    note_display: above
+    note_display: hover
     note_text: Average number of completed activities per closed-lost opportunity
       created in the selected date range
     listen:
@@ -1202,7 +1207,7 @@
     totals_color: "#808080"
     defaults_version: 1
     note_state: collapsed
-    note_display: above
+    note_display: hover
     note_text: Average number of completed follow ups per Converted Lead created in
       the selected date range
     listen:
@@ -1295,7 +1300,7 @@
     totals_color: "#808080"
     defaults_version: 1
     note_state: collapsed
-    note_display: above
+    note_display: hover
     note_text: Average number of completed follow ups per Unqualified Lead created
       in the selected date range
     listen:
@@ -1429,8 +1434,10 @@
     type: looker_bar
     fields: [sales_activities_engagement_opportunity_pipeline.user_full_name, won_opportunities_value,
       completed_activities]
+    filters: {}
     sorts: [won_opportunities_value]
     limit: 500
+    column_limit: 50
     dynamic_fields: [{category: measure, expression: !!null '', label: Completed Activities,
         value_format: !!null '', value_format_name: !!null '', based_on: sales_activities_engagement.count_opportunity_activity,
         _kind_hint: measure, measure: completed_activities, type: count_distinct,
@@ -1488,12 +1495,14 @@
     hidden_fields: []
     note_state: collapsed
     note_display: hover
-    note_text: 'Sales representatives with the lowest won opportunity value '
+    note_text: Sales representatives with the lowest won opportunity value and their
+      completed Opportunity Activities
     listen:
       Sales Representative: sales_activities_engagement_opportunity_pipeline.user_full_name
       Country: sales_activities_engagement_opportunity_pipeline.billing_country
       Created Date: sales_activities_engagement_opportunity_pipeline.opportunity_created_date
       Industry: sales_activities_engagement_opportunity_pipeline.industry
+      Target Currency: sales_activities_engagement_opportunity_pipeline.target_currency
     row: 14
     col: 16
     width: 8
@@ -1505,8 +1514,10 @@
     type: looker_bar
     fields: [sales_activities_engagement_opportunity_pipeline.user_full_name, won_opportunities_value,
       completed_activities]
+    filters: {}
     sorts: [won_opportunities_value desc 0]
     limit: 500
+    column_limit: 50
     dynamic_fields: [{category: measure, expression: !!null '', label: Completed Activities,
         value_format: !!null '', value_format_name: !!null '', based_on: sales_activities_engagement.count_opportunity_activity,
         _kind_hint: measure, measure: completed_activities, type: count_distinct,
@@ -1565,12 +1576,14 @@
     hidden_fields: []
     note_state: collapsed
     note_display: hover
-    note_text: Sales representatives with the highest won opportunity value
+    note_text: Sales representatives with the highest won opportunity value and their
+      completed Opportunity Activities
     listen:
       Sales Representative: sales_activities_engagement_opportunity_pipeline.user_full_name
       Country: sales_activities_engagement_opportunity_pipeline.billing_country
       Created Date: sales_activities_engagement_opportunity_pipeline.opportunity_created_date
       Industry: sales_activities_engagement_opportunity_pipeline.industry
+      Target Currency: sales_activities_engagement_opportunity_pipeline.target_currency
     row: 14
     col: 8
     width: 8
@@ -1590,6 +1603,19 @@
     explore: sales_activities_engagement_opportunity_pipeline
     listens_to_filters: []
     field: sales_activities_engagement.created_date_date
+  - name: Target Currency
+    title: Target Currency
+    type: field_filter
+    default_value: USD
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: cortex_salesforce
+    explore: sales_activities_engagement_opportunity_pipeline
+    listens_to_filters: []
+    field: sales_activities_engagement_opportunity_pipeline.target_currency
   - name: Country
     title: Country
     type: field_filter

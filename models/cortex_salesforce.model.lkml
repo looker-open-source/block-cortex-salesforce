@@ -7,6 +7,7 @@ connection: "@{CONNECTION_NAME}"
 include: "/views/**/*.view"
 
 
+
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
 
@@ -22,7 +23,7 @@ persist_with: cortex_default_datagroup
 # fields available to users for data analysis.
 # Explores should be purpose-built for specific use cases.
 
-# To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Cortex"
+# To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Cortex Salesforce"
 
 # To create more sophisticated Explores that involve multiple views, you can use the join parameter.
 # Typically, join parameters require that you define the join type, join relationship, and a sql_on clause.
@@ -42,29 +43,11 @@ named_value_format: Salesforce_Value_Format {
 
 
 
-
-
-
 explore: case_management{}
 
-explore: opportunity_pipeline {
-  # join: sf_currency_conversion {
-  #   type: left_outer
-  #   sql_on: ${opportunity_pipeline.opportunity_closed_date_date} = ${sf_currency_conversion.conversion_date}
-  #     AND ${sf_currency_conversion.source_currency} = 'USD';;
-  #   relationship: many_to_one
-  # }
-}
+explore: opportunity_pipeline {}
 
-explore: leads_capture_conversion {
-  # join: sf_currency_conversion {
-  #   type: left_outer
-  #   sql_on: ${leads_capture_conversion.opportunity_closed_date} = ${sf_currency_conversion.conversion_date}
-  #     AND ${sf_currency_conversion.source_currency} = 'USD';;
-  #   relationship: many_to_one
-  # }
-}
-
+explore: leads_capture_conversion {}
 
 
 explore:sales_activities_engagement  {
@@ -92,12 +75,10 @@ join: sales_rep {
 
 
 explore: sales_activities_engagement_opportunity_pipeline {
-# from: opportunity_pipeline2
   join: sales_rep {
   view_label: "SalesActivitiesUser"
   type: left_outer
   sql_on: ${sales_activities_engagement_opportunity_pipeline.user_full_name}=${sales_rep.sales_rep} ;;
-  #AND ${sales_activities_engagement.sales_rep_owner}=${sales_rep.sales_rep};;
   relationship: many_to_one
 }
 
@@ -114,21 +95,13 @@ explore: sales_activities_engagement_opportunity_pipeline {
     relationship: many_to_one
   }
 
-  # join: sf_currency_conversion {
-  #   type: left_outer
-  #   sql_on: ${sales_activities_engagement_opportunity_pipeline.opportunity_closed_date} = ${sf_currency_conversion.conversion_date}
-  #     AND ${sf_currency_conversion.source_currency} = 'USD';;
-  #   relationship: many_to_one
-
-
-  # }
-
   join: sales_activities_engagement{
     type: left_outer
-    sql_on: ${sales_activities_engagement.opportunity_id}=${sales_activities_engagement_opportunity_pipeline.opportunity_id} ;;
+    sql_on: ${sales_activities_engagement.opportunity_id}=${sales_activities_engagement_opportunity_pipeline.opportunity_id}
+            AND ${sales_activities_engagement.target_currency}=${sales_activities_engagement_opportunity_pipeline.target_currency};;
     relationship: one_to_many
   }
 }
 
-#********************************************************************************************************#
+
 

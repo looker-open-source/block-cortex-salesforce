@@ -92,6 +92,7 @@
       Opportunity Is Won (Yes / No): opportunity_pipeline.opportunity_is_won
       Country: opportunity_pipeline.billing_country
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 0
     col: 0
     width: 24
@@ -111,6 +112,19 @@
     explore: opportunity_pipeline
     listens_to_filters: []
     field: opportunity_pipeline.opportunity_created_date
+  - name: Target Currency
+    title: Target Currency
+    type: field_filter
+    default_value: USD
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: popover
+    model: cortex_salesforce
+    explore: opportunity_pipeline
+    listens_to_filters: []
+    field: opportunity_pipeline.target_currency
   - name: Country
     title: Country
     type: field_filter

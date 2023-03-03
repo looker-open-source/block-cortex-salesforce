@@ -76,7 +76,7 @@
   - name: Opportunity Created Date
     title: Opportunity Created Date
     type: field_filter
-    default_value: 7 day
+    default_value: this year to second
     allow_multiple_values: true
     required: false
     ui_config:
@@ -155,7 +155,7 @@
   - name: Opportunity Is Won (Yes / No)
     title: Opportunity Is Won (Yes / No)
     type: field_filter
-    default_value: 'Yes'
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:

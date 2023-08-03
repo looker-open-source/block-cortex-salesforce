@@ -11,16 +11,16 @@ view: account_industry {
       sql:
       Select distinct AccountIndustry,AccountId from
 
-      (Select distinct AccountIndustry as AccountIndustry,AccountId as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as a
+      (Select distinct AccountIndustry as AccountIndustry,AccountId as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as a
 
         UNION ALL
 
-        Select distinct AccountIndustry as AccountIndustry,AccountId as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.OpportunityPipeline as b
+        Select distinct AccountIndustry as AccountIndustry,AccountId as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.OpportunityPipeline` as b
 
         UNION ALL
 
-        Select distinct LeadIndustry as AccountIndustry, '' as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
-        
+        Select distinct LeadIndustry as AccountIndustry, '' as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as c
+
         );;
 
     }

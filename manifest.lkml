@@ -1,6 +1,6 @@
 
 constant: CONNECTION_NAME {
-  value: "cortex_sfdc"
+  value: "Connection Name"
   export: override_required
 }
 

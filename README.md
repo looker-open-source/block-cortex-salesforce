@@ -33,5 +33,4 @@ These 6 dashboards are accompanied by 5 supplemental detail dashboards with pert
 
 To learn more about LookML and how to develop visit:
 - [Looker Best Practices](https://cloud.google.com/looker/docs/best-practices/home)
-- [Looker Help Center](https://help.looker.com)
 - [Looker/Google Cloud Training](https://www.cloudskillsboost.google/catalog)

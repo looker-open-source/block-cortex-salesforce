@@ -2,7 +2,7 @@
 view: leads_capture_conversion {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: `@{GCP_PROJECT}.@{SFDC_DATASET}.LeadsCaptureConversions`
+  sql_table_name: `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.LeadsCaptureConversions`
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -310,7 +310,7 @@ view: leads_capture_conversion {
     }
   }
 
- 
+
 
 
   dimension: lead_owner_name {

@@ -10,16 +10,16 @@ view: account_country {
       sql:
       Select distinct AccountCountry,AccountId from
 
-        (Select distinct AccountBillingCountry as AccountCountry,AccountId as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as a
+        (Select distinct AccountBillingCountry as AccountCountry,AccountId as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as a
 
         UNION ALL
 
-        Select distinct AccountBillingCountry as AccountCountry,AccountId as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.OpportunityPipeline as b
+        Select distinct AccountBillingCountry as AccountCountry,AccountId as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.OpportunityPipeline` as b
 
         UNION ALL
 
-       Select distinct LeadCountry as AccountCountry, '' as AccountId from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
-       
+       Select distinct LeadCountry as AccountCountry, '' as AccountId from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as c
+
         );;
 
     }

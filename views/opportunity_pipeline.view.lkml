@@ -43,7 +43,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.AccountName ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -62,23 +62,9 @@ view: opportunity_pipeline {
   #   sql: ${TABLE}.TargetAmount ;;
   # }
 
-  # dimension: actual_amount_conv {
-  #   type: number
-  #   sql: ${TABLE}.TargetAmount * ${sf_currency_conversion.conversion_rate} ;;
-  # }
-
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  # measure: sum_of_actual_amount_conv {
-  #   type: sum_distinct
-  #   #Added 13 Nov
-  #   #sql_distinct_key: CONCAT(${opportunity_owner_id},${opportunity_closed_quarter});;
-  #   # End 13Nov
-  #   sql: ${actual_amount_conv} ;;
-  #   value_format_name: Salesforce_Value_Format
-  # }
 
   # measure: sum_of_actual_amount {
   #   type: sum
@@ -127,7 +113,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.AccountIndustry ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -171,13 +157,6 @@ view: opportunity_pipeline {
     sql: ${TABLE}.OpportunityCloseDate ;;
   }
 
-#   dimension: opportunity_closed_date_date {
-#     type: date
-#     datatype: date
-#     primary_key: yes
-#     sql: ${opportunity_closed_date} ;;
-#   }
-
   dimension_group: opportunity_created {
     type: time
     timeframes: [
@@ -199,12 +178,18 @@ view: opportunity_pipeline {
 
   dimension: opportunity_id {
     type: string
-    primary_key: yes
+    #primary_key: yes
     sql: ${TABLE}.OpportunityId ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
+  }
+
+  dimension: opportunity_id_target_currency {
+    type: string
+    primary_key: yes
+    sql: CONCAT(${opportunity_id},${target_currency}) ;;
   }
 
   measure: count_of_opportunity_id{
@@ -213,7 +198,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -224,7 +209,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -235,7 +220,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -246,7 +231,7 @@ view: opportunity_pipeline {
     value_format: "#,##0"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -337,27 +322,20 @@ view: opportunity_pipeline {
 
   dimension: total_sale_amount {
     type: number
-    sql: ${TABLE}.TotalSaleAmount ;;
+    sql: ${TABLE}.TotalSaleAmountInTargetCurrency ;;
   }
-
-  # dimension: total_sale_amount_conv {
-  #   type: number
-  #   sql: ${TABLE}.TotalSaleAmount * ${sf_currency_conversion.conversion_rate} ;;
-  # }
-
-
-
 
 
   measure: sum_of_total_sale_amount {
     type: sum
     #sql_distinct_key: ${opportunity_id} ;;
     sql: ${total_sale_amount} ;;
+    precision: 2
     value_format_name: Salesforce_Value_Format
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -367,29 +345,28 @@ view: opportunity_pipeline {
     filters: [opportunity_is_closed: "No"]
     #sql_distinct_key: ${opportunity_id} ;;
     sql: ${total_sale_amount} ;;
+    precision: 2
     value_format_name: Salesforce_Value_Format
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
-
-
 
   measure: sum_of_total_sale_amount_closed_won {
     type: sum
     filters: [opportunity_is_closed: "Yes",opportunity_is_won: "Yes"]
     #sql_distinct_key: ${opportunity_id} ;;
     sql: ${total_sale_amount} ;;
+    precision: 2
     value_format_name: Salesforce_Value_Format
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
-
 
 
   measure: sum_of_total_sale_amount_closed_lost {
@@ -397,11 +374,12 @@ view: opportunity_pipeline {
     filters: [opportunity_is_closed: "Yes",opportunity_is_won: "No"]
     #sql_distinct_key: ${opportunity_id} ;;
     sql: ${total_sale_amount} ;;
+    precision: 2
     value_format_name: Salesforce_Value_Format
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -485,7 +463,7 @@ view: opportunity_pipeline {
     sql: ${TABLE}.OpportunityOwnerName ;;
     link: {
       label: "Opportunity Trends And Pipeline Detailed Report"
-      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}"
+      url: "/dashboards/cortex_salesforce::opportunity_trends__pipeline_details?Opportunity+Created+Date={{_filters['opportunity_pipeline.opportunity_created_date']}}&Country={{_filters['opportunity_pipeline.billing_country']}}&Industry={{_filters['opportunity_pipeline.industry']}}&Opportunity+Owner={{_filters['opportunity_pipeline.opportunity_owner_name']}}&Target+Currency={{_filters['opportunity_pipeline.target_currency']}}"
     }
   }
 
@@ -494,10 +472,18 @@ view: opportunity_pipeline {
   #   sql: ${TABLE}.UserType ;;
   # }
 
+  dimension: target_currency {
+    type: string
+    sql: ${TABLE}.TargetCurrency ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: [detail*]
   }
+
+
 
   measure: dash_nav {
     hidden: no

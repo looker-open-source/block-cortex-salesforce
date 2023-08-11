@@ -2,7 +2,7 @@
 view: leads_capture_conversion {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
-  sql_table_name: `@{GCP_PROJECT}.@{SFDC_DATASET}.LeadsCaptureConversions`
+  sql_table_name: `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.LeadsCaptureConversions`
     ;;
   # No primary key is defined for this view. In order to join this view in an Explore,
   # define primary_key: yes on a dimension that has no repeated values.
@@ -301,8 +301,8 @@ view: leads_capture_conversion {
       url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
-
-
+  
+  
   dimension: lead_owner_name {
     type: string
     sql: ${TABLE}.LeadOwnerName ;;

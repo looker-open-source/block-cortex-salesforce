@@ -8,15 +8,15 @@ derived_table: {
 sql:
 Select distinct Name,Owner from
 
-(Select distinct ActivityOwnerName as Name,OwnerId as Owner from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as a
+(Select distinct ActivityOwnerName as Name,OwnerId as Owner from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as a
 
 UNION ALL
 
-Select distinct OpportunityOwnerName as Name, OpportunityOwnerId as Owner from @{GCP_PROJECT}.@{SFDC_DATASET}.OpportunityPipeline as b
+Select distinct OpportunityOwnerName as Name, OpportunityOwnerId as Owner from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.OpportunityPipeline` as b
 
 UNION ALL
 
-Select distinct LeadOwnerName as Name,LeadOwnerId as Owner from @{GCP_PROJECT}.@{SFDC_DATASET}.SalesActivities as c
+Select distinct LeadOwnerName as Name,LeadOwnerId as Owner from `@{GCP_PROJECT_ID}.@{SFDC_DATASET}.SalesActivities` as c
 );;
 
 }

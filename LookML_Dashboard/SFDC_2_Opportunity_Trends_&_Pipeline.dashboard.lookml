@@ -37,6 +37,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 4
     col: 12
     width: 6
@@ -71,6 +72,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 4
     col: 18
     width: 6
@@ -107,6 +109,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 4
     col: 6
     width: 6
@@ -198,6 +201,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 8
     col: 0
     width: 12
@@ -254,6 +258,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 14
     col: 16
     width: 8
@@ -309,6 +314,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 20
     col: 0
     width: 12
@@ -406,6 +412,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 14
     col: 0
     width: 8
@@ -469,6 +476,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 4
     col: 0
     width: 6
@@ -504,6 +512,7 @@
     explore: opportunity_pipeline
     type: single_value
     fields: [opportunity_pipeline.sum_of_total_sale_amount]
+    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -529,6 +538,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 6
     col: 0
     width: 6
@@ -539,6 +549,7 @@
     explore: opportunity_pipeline
     type: single_value
     fields: [opportunity_pipeline.sum_of_total_sale_amount_open, opportunity_pipeline.sum_of_total_sale_amount]
+    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -564,6 +575,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 6
     col: 6
     width: 6
@@ -574,6 +586,7 @@
     explore: opportunity_pipeline
     type: single_value
     fields: [opportunity_pipeline.sum_of_total_sale_amount_closed_won, opportunity_pipeline.sum_of_total_sale_amount]
+    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -599,6 +612,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 6
     col: 12
     width: 6
@@ -609,6 +623,7 @@
     explore: opportunity_pipeline
     type: single_value
     fields: [opportunity_pipeline.sum_of_total_sale_amount_closed_lost, opportunity_pipeline.sum_of_total_sale_amount]
+    filters: {}
     limit: 500
     column_limit: 50
     custom_color_enabled: true
@@ -634,6 +649,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 6
     col: 18
     width: 6
@@ -644,8 +660,10 @@
     explore: opportunity_pipeline
     type: looker_bar
     fields: [won_opportunities_value, opportunity_pipeline.opportunity_owner_name]
+    filters: {}
     sorts: [won_opportunities_value desc]
     limit: 10
+    column_limit: 50
     dynamic_fields: [{category: measure, label: Won Opportunities Value, based_on: opportunity_pipeline.sum_of_total_sale_amount,
         _kind_hint: measure, measure: won_opportunities_value, type: sum, _type_hint: number,
         filters: {opportunity_pipeline.opportunity_is_closed: 'Yes', opportunity_pipeline.opportunity_is_won: 'Yes'}}]
@@ -703,6 +721,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 20
     col: 12
     width: 12
@@ -716,6 +735,7 @@
       opportunity_pipeline.sum_of_total_sale_amount_closed_won, opportunity_pipeline.sum_of_total_sale_amount_open,
       opportunity_pipeline.sum_of_total_sale_amount_closed_lost]
     fill_fields: [opportunity_pipeline.opportunity_created_month]
+    filters: {}
     sorts: [opportunity_pipeline.opportunity_created_month desc]
     limit: 500
     column_limit: 50
@@ -840,6 +860,7 @@
       Opportunity Created Date: opportunity_pipeline.opportunity_created_date
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
       Opportunity Closed Date: opportunity_pipeline.opportunity_closed_date
+      Target Currency: opportunity_pipeline.target_currency
     row: 8
     col: 12
     width: 12
@@ -935,6 +956,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 14
     col: 8
     width: 8
@@ -949,9 +971,11 @@
       opportunity_pipeline.count_of_opportunity_id_closed_won, opportunity_pipeline.sum_of_total_sale_amount_closed_won,
       opportunity_pipeline.count_of_opportunity_id_closed_lost, opportunity_pipeline.sum_of_total_sale_amount_closed_lost,
       opportunity_pipeline.count_of_opportunity_id_open, opportunity_pipeline.sum_of_total_sale_amount_open]
+    filters: {}
     sorts: [opportunity_pipeline.count_of_opportunity_id desc, opportunity_pipeline.sum_of_total_sale_amount_open
         desc]
     limit: 5000
+    column_limit: 50
     dynamic_fields: [{category: table_calculation, expression: "(${opportunity_pipeline.count_of_opportunity_id_closed_won}/(${opportunity_pipeline.count_of_opportunity_id_closed_won}+${opportunity_pipeline.count_of_opportunity_id_closed_lost}))*100",
         label: Opportunity Win Percentage, value_format: 0.00 "%", value_format_name: __custom,
         _kind_hint: measure, table_calculation: opportunity_win_percentage, _type_hint: number}]
@@ -1026,6 +1050,7 @@
       Country: opportunity_pipeline.billing_country
       Industry: opportunity_pipeline.industry
       Opportunity Owner: opportunity_pipeline.opportunity_owner_name
+      Target Currency: opportunity_pipeline.target_currency
     row: 25
     col: 0
     width: 24
@@ -1045,6 +1070,19 @@
     explore: opportunity_pipeline
     listens_to_filters: []
     field: opportunity_pipeline.opportunity_created_date
+  - name: Target Currency
+    title: Target Currency
+    type: field_filter
+    default_value: USD
+    allow_multiple_values: true
+    required: true
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: cortex_salesforce
+    explore: opportunity_pipeline
+    listens_to_filters: []
+    field: opportunity_pipeline.target_currency
   - name: Opportunity Closed Date
     title: Opportunity Closed Date
     type: field_filter

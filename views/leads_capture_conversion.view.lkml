@@ -13,19 +13,17 @@ view: leads_capture_conversion {
 
   dimension: lead_id {
     type: string
-    primary_key: yes
+    #primary_key: yes
     sql: ${TABLE}.LeadID ;;
 
   }
 
-#Added 15 Nov
-  # dimension: primary_key_key {
-  #   type: string
-  #   primary_key: yes
-  #   sql: CONCAT(${lead_id},${opportunity_id}) ;;
-  # }
+  dimension: lead_id_target_currency {
+    type: string
+    primary_key: yes
+    sql: CONCAT(${lead_id},${target_currency}) ;;
+  }
 
-#End 15 Nov
 
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
@@ -66,6 +64,7 @@ view: leads_capture_conversion {
 
   dimension: lead_country {
     type: string
+    map_layer_name: countries
     sql: ${TABLE}.LeadCountry ;;
   }
 
@@ -96,7 +95,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -107,7 +106,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -118,7 +117,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -129,7 +128,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -140,7 +139,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -151,7 +150,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -162,7 +161,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -173,7 +172,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadIndustry ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -197,7 +196,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadSource ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -206,7 +205,7 @@ view: leads_capture_conversion {
     sql: ${TABLE}.LeadStatus ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -241,9 +240,6 @@ view: leads_capture_conversion {
 
   dimension: opportunity_id {
     type: string
-    #Added 15 Nov
-   # primary_key: yes
-    #End 15 Nov
     sql: ${TABLE}.OpportunityID ;;
   }
 
@@ -254,7 +250,7 @@ view: leads_capture_conversion {
     value_format: "#,##0"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
@@ -285,13 +281,8 @@ view: leads_capture_conversion {
 
   dimension: total_sale_amount {
     type: number
-    sql: ${TABLE}.TotalSaleAmount ;;
+    sql: ${TABLE}.TotalSaleAmountInTargetCurrency ;;
   }
-
-  # dimension: total_sale_amount_conv {
-  #   type: number
-  #   sql: ${TABLE}.TotalSaleAmount * ${sf_currency_conversion.conversion_rate} ;;
-  # }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
@@ -302,30 +293,36 @@ view: leads_capture_conversion {
     filters: [is_converted: "Yes"]
     sql_distinct_key: ${opportunity_id} ;;
     sql: ${total_sale_amount} ;;
+    precision: 2
     value_format_name: Salesforce_Value_Format
     #value_format: "[>=1000000000]0.00,,,\"B\";[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0.00"
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
-
-
-
-
+  
+  
   dimension: lead_owner_name {
     type: string
     sql: ${TABLE}.LeadOwnerName ;;
     link: {
       label: "Leads Detailed Report"
-      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}"
+      url: "/dashboards/cortex_salesforce::leads_capture__conversion_details?Lead+Created+Date={{_filters['leads_capture_conversion.lead_created_date']}}&Country={{_filters['leads_capture_conversion.lead_country']}}&Lead+Owner={{_filters['leads_capture_conversion.lead_owner_name']}}&Industry={{_filters['leads_capture_conversion.lead_industry']}}&Lead+Source={{_filters['leads_capture_conversion.lead_source']}}&Target+Currency={{_filters['leads_capture_conversion.target_currency']}}"
     }
   }
 
-  measure: count {
+  dimension: target_currency {
+    type: string
+    sql: ${TABLE}.TargetCurrency ;;
+  }
+
+ measure: count {
     type: count
     drill_fields: [detail*]
   }
+
+
 
   measure: dash_nav {
     hidden: no
